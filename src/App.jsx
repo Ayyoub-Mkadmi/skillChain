@@ -1,5 +1,6 @@
 
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom'
+import ErrorPage from './components/ErrorPage';
 import Homepage from './pages/Homepage';
 import Mainlayout from './layouts/mainlayout';
 import IssueCertificate from './pages/IssueCertificate';
@@ -9,11 +10,11 @@ function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
     <>
-      <Route path='/' element={<Mainlayout />}>
+      <Route path='/' element={<Mainlayout />} errorElement={<ErrorPage />}>
         <Route path='/' element={<Homepage />} />
         <Route path='/issuecertificate' element={<IssueCertificate/>} />
       </Route>
-      <Route path='/viewcertificate/:id' element={<ViewCertificate/>} />
+      <Route path='/viewcertificate/:id' element={<ViewCertificate/>} errorElement={<ErrorPage />} />
     </>
 
 
